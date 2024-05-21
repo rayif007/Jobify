@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card mx-auto" style="width: 76rem;">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+        <h5 class="card-title mb-3">All Applicants for {{job.title}} Position</h5>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Job Position/Title</th>
+                    <th scope="col">Application Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for applicant in applicants %}
+                <tr>
+                    <td>{{applicant.user.resume.first_name}}</td>
+                    <td>{{applicant.user.resume.surname}}</td>
+                    <td>{{applicant.user.resume.location}}</td>
+                    <td>{{applicant.user.resume.job_title}}</td>
+                    <td>{{applicant.timestamp}}</td>
+                    <td><a target="_blank" href="{{applicant.user.resume.upload_resume.url}}"><small>Download Resume</small></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+            card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    </div>
+</div>
+
+
+{% endblock content %}

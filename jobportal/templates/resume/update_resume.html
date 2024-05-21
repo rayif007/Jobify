@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mx-auto" style="width: 40rem;">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Create A Resume</h5>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_first_name" class="form-label">First Name</label>
+                        <input type="text" id="id_first_name" name="first_name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_surname" class="form-label">Surname</label>
+                        <input type="text" id="id_surname" name="surname" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_location" class="form-label">Location</label>
+                        <input type="text" id="id_location" name="location" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_job_title" class="form-label">Job title</label>
+                        <input type="text" id="id_job_title" name="job_title" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_education" class="form-label">Education</label>
+                        <input type="text" id="id_education" name="education" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_skills" class="form-label">Skills</label>
+                        <input type="text" id="id_skills" name="skills" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_upload_resume" class="form-label">Upload Resume</label>
+                        <input type="file" id="id_upload_resume" name="upload_resume" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
